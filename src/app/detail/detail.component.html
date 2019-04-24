@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="container--arrow prev" (click)="prev()"></div>
+  <div class="container--image">
+    <img src="/assets/images/{{image.fileName}}"/>
+    <p *ngIf="!edit" (click)="edit = true">{{image.imageName}}</p>
+    <p *ngIf="edit">
+      <input [value]="image.imageName" (keyup)="changeName($event)" (blur)="edit = false">
+    </p>
+    <a (click)="delete()">delete</a>
+    <a routerLink="/">back</a>
+  </div>
+  <div class="container--arrow next" (click)="next()"></div>
+</div>
+
